@@ -1,0 +1,47 @@
+---
+title: "ADA Midterm Exam"
+author: "Nidhi Shinde"
+date: '2022-10-18'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+pacman::p_load(haven, readr, dplyr, openxlsx, table1,
+               ggplot2)
+```
+
+# Question 3a
+```{r}
+#Importing dataset
+titanic <- read_csv("https://raw.githubusercontent.com/kijohnson/Data/main/titanic.csv")
+```
+
+# Question 3b
+```{r}
+# determining median age
+
+table1(~ Age | Pclass,
+       data = titanic)
+```
+
+```{r}
+#converting pclass from numeric to character
+titanic$Pclass <- as.character(titanic$Pclass)
+class(titanic$Pclass)
+```
+
+# Question 3c
+```{r}
+# Plotting a boxplot that shows medians, spread of data and outliers for age by passenger class
+ggplot(data = titanic, aes(x = Pclass, y = Age)) +
+  geom_boxplot() +
+  labs(x = "Passenger class", y = "Age",  title = "Boxplot")
+```
+
+
+
+
