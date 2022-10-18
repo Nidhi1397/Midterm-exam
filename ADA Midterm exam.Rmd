@@ -43,5 +43,15 @@ ggplot(data = titanic, aes(x = Pclass, y = Age)) +
 ```
 
 
+# Question 4b
+```{r}
+# determine the percentage of males and females by class
+table1(~ Sex | Pclass,
+       data = titanic)
+```
+
+
+
+
 
 
